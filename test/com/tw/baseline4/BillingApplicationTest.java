@@ -35,4 +35,18 @@ public class BillingApplicationTest {
                 "Sales Taxes: 0.0\n" +
                 "Total: 12.49\n", byteArrayOutputStream.toString());
     }
+
+    @Test
+    public void shouldProduceReceiptForAnotherSingleNonTaxableItem() {
+        String input = "1 chocolate bar at 0.85";
+        ByteArrayInputStream inContent = new ByteArrayInputStream(input.getBytes());
+        System.setIn(inContent);
+        BillingApplication billingApplication = new BillingApplication();
+
+        billingApplication.start();
+
+        assertEquals("1 chocolate bar: 0.85\n" +
+                "Sales Taxes: 0.0\n" +
+                "Total: 0.85\n", byteArrayOutputStream.toString());
+    }
 }
