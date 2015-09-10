@@ -25,7 +25,7 @@
         </javac>
     </target>
 
-    <target name="clean" description="clean previous output directory">
+    <target name="clean" description="clean previous receiptCreator directory">
         <delete dir="out"/>
     </target>
 
